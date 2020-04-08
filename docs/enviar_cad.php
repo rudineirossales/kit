@@ -75,11 +75,9 @@ include "coon.php";
 
 
 
-$nome =$_POST['nome'];
-$id =$_POST['id']; 
-$funcao =$_POST['funcao'];
-$id_ga =$_POST['id_ga'];
-$nome_ga =$_POST['nome_ga']; 
+$cp =$_POST['cp'];
+$tipo =$_POST['tipo']; 
+
 
 
 ?>
@@ -87,7 +85,7 @@ $nome_ga =$_POST['nome_ga'];
 <script type="text/javascript">
 function saidasuccessfully()
 {
-	setTimeout("window.location='table-data-table.php?id=<?php echo $id ; ?>'",1000);
+	setTimeout("window.location='table-data-table.php?id=<?php echo $cp ; ?>'",1000);
 	
 	
 }
@@ -98,9 +96,9 @@ function saidasuccessfully()
 
 
 
-$query = "insert into colaborador (id_tec,nome,funcao,id_ga,nome_ga,cod_eqp,descricao,qtd)";
+$query = "insert into cp (local,rack_ori,dio_ori,porta_livre,conector,modelo,capacidade,destino,rack_dest,dio_dest,tipo)";
 
-if ($funcao == 'cabista')
+if ($tipo == 'fibra')
 {
 
 

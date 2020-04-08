@@ -1,18 +1,68 @@
-<?php 
-         include "conn.php"; 
-      
-         session_start();
+<?php  include "conn.php"; 
 
-     
-?>
+session_start();
+
+
+$protocolo = $_GET['protocolo'];
+
+
+?> 
+              
+        
+
+
+
+
 
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="icon" href="img/serede.png"> 
+
+ 
+
+  <link rel="icon" href="img/serede.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+
+
+
 
   
+<style>
+  #loading
+{
+  
+width:70px;
+height:70px;  
+  
+  
+  
+  
+}
+</style>
+
+
+
+
+<link rel="stylesheet"  href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet"  href="/resources/demos/style.css">
+
+
+
+<script type="text/javascript" src="js/jquery-ui.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.maskedinput.js"></script>
+<script type="text/javascript" src="validacaoid.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.js"></script>
+
+
+
+
     <meta name="description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
     <!-- Twitter meta-->
     <meta property="twitter:card" content="summary_large_image">
@@ -63,7 +113,7 @@
       </div>
       <ul class="app-menu">
         <li><a class="app-menu__item " href="dashboard.php"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
-        <li><a class="app-menu__item " href="cadastro.php"><i class="app-menu__icon fa fa-user"></i><span class="app-menu__label">Cadastro Técnico</span></a></li>
+        
         
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="bootstrap-components.html"><i class="icon fa fa-circle-o"></i> Bootstrap Elements</a></li>
@@ -76,122 +126,138 @@
     <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-th-list"></i> Lista Colaboradores</h1>
+          <h1><i class="fa fa-edit"></i> Editar Estação</h1>
           <p></p>
         </div>
-        <ul class="app-breadcrumb breadcrumb side">
+        <ul class="app-breadcrumb breadcrumb">
           <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-          <li class="breadcrumb-item">Tabelas</li>
-          <li class="breadcrumb-item active"><a href="#">Data Table</a></li>
+          <li class="breadcrumb-item">Forms</li>
+          <li class="breadcrumb-item"><a href="#">Form Components</a></li>
         </ul>
       </div>
       <div class="row">
         <div class="col-md-12">
-
-        
           <div class="tile">
-          
-            <div class="table-responsive">
+            <div class="row">
+              <div class="col-lg-6">
+
+              <?php
+               
+               $sql = mysql_query ("select * from localidade where protocolo = '$protocolo'" );
+
+      
+               $row = mysql_num_rows($sql);
+
+               if (mysql_num_rows($sql) > 0)
+               {
+
+                $dado = mysql_fetch_assoc($sql);
+               
+
+              ?>
+              <form class="form" role="form" name="seachform" method="post"  action="editar_estacao2.php ">
+
+
+
+<div class="form-group">
+
+
+
+
+<input type="hidden" class="form-control" value="<?php echo $dado['protocolo'];?>" name="protocolo"  required>
+</div>
+
+<div class="form-group">
+
+
+
+  <label for="email">Matrícula:</label>
+  <input type="text" class="form-control" value="<?php echo $dado['matricula'];?>" name="matricula"  required>
+</div>
+<div class="form-group">
+
+  <label for="email">Localidade:</label>
+  <input type="text" class="form-control" value="<?php echo $dado['localidade'];?>" name="localidade"  required>
+</div>
+
+<div class="form-group">
+
+  <label for="email">Estação:</label>
+  <input type="text" class="form-control" value="<?php echo $dado['estacao'];?>" name="estacao"  required>
+</div>
+
+<div class="form-group">
+
+  <label for="email">Microarea
+  :</label>
+  <input type="text" class="form-control" value="<?php echo $dado['micro'];?>" name="micro"  required>
+</div>
+
+
+
+
+
+
+
+
+
+<br><br><button type="submit" value="Enviar" class="btn btn-primary" id="enviar" required> <strong>Editar</strong>
+</button><br><br><br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</form>
+
+
+
+               <?php 
             
-              <table class="table table-hover table-bordered" id="myTable">
-                <thead>
-                  <tr>
-                
-                                <th width="20%">Id</th>
-                                <th width="30%">Nome</th>
-                                <th width="15%">Função</th>
-                                <th width="15%">Inventario</th>
-                                
-                    
-                    
-                  </tr>
-                </thead>
-
-<?php
-  
-  
-
-$id = $_GET['id'];
-
-
-if ($_SESSION['acesso'] == 'ADM')
-{
-
-  $sql = mysql_query ("SELECT * FROM colaborador group by id_ga" );
-}
-else
-{
-    $sql = mysql_query ("select * from colaborador where id_ga  = '".$_SESSION['id']."' group by nome" );
-
-}
-
-    $row = mysql_num_rows($sql);
-
- 
- 
-
-    if (mysql_num_rows($sql) > 0)
-    {
-      while ($dado = mysql_fetch_assoc($sql))
-      
-        {
-     
-      
-
-?>
-                <tbody>
-                     
-
-
-
-                  <tr>
-                    
-                    <td> <?php if ($_SESSION['acesso'] == 'ADM') { echo $dado ["id_ga"]; } else echo $dado ["id_tec"];  ?></td>
-                    <td> <?php if ($_SESSION['acesso'] == 'ADM') { echo $dado ["nome_ga"]; } else echo $dado ["nome"];  ?></td>
-                    <td><?php if ($_SESSION['acesso'] == 'ADM') { echo "Gestor"; } else echo $dado ["funcao"];  ?></td>
-                    
-                   
-
-
-
-<?php if ($_SESSION['acesso'] == 'ADM') { ?>
-<td> <a style="color:black;" href="table-data-table2.php?id=<?php echo $dado ["id_ga"]; ?>"  role="button" aria-pressed="true"><i class="fa fa-file-text" aria-hidden="true"></i></a></td>
-<?php } else { ?>
-
-
-
-<td> <a style="color:black;" href="table-data-table.php?id=<?php echo $dado ["id_tec"]; ?>   role="button" aria-pressed="true"><i class="fa fa-file-text" aria-hidden="true"></i></a></td>
-<?php } ?>
-
-
-                    
-                    
-                  </tr>
-      <?php 
-                      
-      } 
-         
-    } ?>
-                </tbody>
-              </table>
+            
+            
+            
+            
+            
+            
+            } ?>
+              </div>
             </div>
+            
           </div>
         </div>
       </div>
     </main>
+
+
     
     <!-- Essential javascripts for application to work-->
-
+  
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
     <!-- The javascript plugin to display page loading on top-->
     <script src="js/plugins/pace.min.js"></script>
     <!-- Page specific javascripts-->
-    <!-- Data table plugin-->
-    <script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
-    <script type="text/javascript">$('#sampleTable').DataTable();</script>
     <!-- Google analytics script-->
     <script type="text/javascript">
       if(document.location.hostname == 'pratikborsadiya.in') {
@@ -203,7 +269,7 @@ else
       	ga('send', 'pageview');
       }
     </script>
-
-  
   </body>
 </html>
+
+

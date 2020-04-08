@@ -150,11 +150,12 @@ break;
 
                   <tr>
                     
-                    <td> <?php if ($_SESSION['acesso'] == 'ADM') { echo $dado ["id_ga"]; } else echo $dado ["id_tec"];  ?></td>
-                    <td><?php echo $dado ["nome"];  ?></td>
-                    <td><?php if ($_SESSION['acesso'] == 'ADM') { echo "Gestor"; } else echo $dado ["funcao"];  ?></td>
+                    <td> <?php  echo $dado ["id_tec"]; ?></td>
+                    <td> <?php  echo $dado ["nome"];  ?></td>
                     
-                    <td> <a style="color:black;" href="table-data-table.php?id=<?php if ($_SESSION['acesso'] == 'ADM') { echo $dado ["id_tec"]; } else echo $dado ["id_tec"];?>" target="_blank"  role="button" aria-pressed="true"><i class="fa fa-file-text" aria-hidden="true"></i></a></td>
+                    <td><?php  echo $dado ["funcao"];  ?></td>
+                    
+                    <td> <a style="color:black;" href="table-data-table.php?id=<?php if ($_SESSION['acesso'] == 'ADM') { echo $dado ["id_tec"]; } else echo $dado ["id_tec"];?>"   role="button" aria-pressed="true"><i class="fa fa-file-text" aria-hidden="true"></i></a></td>
 
 
                     

@@ -3,16 +3,18 @@
       
          session_start();
 
-     
+         if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"])  )
+            {
+                 header("Location: index.html");
+                  exit;
+            }
 ?>
 
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="icon" href="img/serede.png"> 
-
-  
+    <link rel="icon" href="img/serede.png">
     <meta name="description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
     <!-- Twitter meta-->
     <meta property="twitter:card" content="summary_large_image">
@@ -25,7 +27,7 @@
     <meta property="og:url" content="http://pratikborsadiya.in/blog/vali-admin">
     <meta property="og:image" content="http://pratikborsadiya.in/blog/vali-admin/hero-social.png">
     <meta property="og:description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
-    <title>Kit Ferramental</title>
+    <title>BA97</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -58,12 +60,13 @@
       <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" style="width:38px; height:40px;" src="img/serede.jpg" alt="User Image">
         <div>
           <p class="app-sidebar__user-name"><?php echo $_SESSION['nome'];?> </p>
-          <p class="app-sidebar__user-designation"><?php echo $_SESSION['acesso'];?></p>
+          <p class="app-sidebar__user-designation"><?php echo $_SESSION['area'];?></p>
         </div>
       </div>
-      <ul class="app-menu">
+      <ul class="app-menu">  
+      <!--
         <li><a class="app-menu__item " href="dashboard.php"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
-        <li><a class="app-menu__item " href="cadastro.php"><i class="app-menu__icon fa fa-user"></i><span class="app-menu__label">Cadastro Técnico</span></a></li>
+        <li><a class="app-menu__item " href="pesq_ga.php"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Voltar</span></a></li>
         
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="bootstrap-components.html"><i class="icon fa fa-circle-o"></i> Bootstrap Elements</a></li>
@@ -72,59 +75,52 @@
             <li><a class="treeview-item" href="widgets.html"><i class="icon fa fa-circle-o"></i> Widgets</a></li>
           </ul>
         </li>
+        -->
+        
+        
     </aside>
     <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-th-list"></i> Lista Colaboradores</h1>
-          <p></p>
+          <h1><i class="fa fa-th-list"></i> Pendentes BA97</h1>
+          <p>Tabela cumulativa </p>
         </div>
         <ul class="app-breadcrumb breadcrumb side">
           <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-          <li class="breadcrumb-item">Tabelas</li>
+          <li class="breadcrumb-item">Tables</li>
           <li class="breadcrumb-item active"><a href="#">Data Table</a></li>
         </ul>
       </div>
       <div class="row">
         <div class="col-md-12">
-
-        
           <div class="tile">
-          
             <div class="table-responsive">
-            
-              <table class="table table-hover table-bordered" id="myTable">
+              <table class="table table-hover table-bordered" >
                 <thead>
                   <tr>
-                
-                                <th width="20%">Id</th>
-                                <th width="30%">Nome</th>
-                                <th width="15%">Função</th>
-                                <th width="15%">Inventario</th>
-                                
+                  <th>UF</th>
+                    <th>Localidade</th>
+                    <th>Estação</th>
+                    <th>Microarea</th>
+                 
+                    <th>Matrícula</th>
                     
                     
                   </tr>
                 </thead>
 
 <?php
-  
-  
-
-$id = $_GET['id'];
 
 
-if ($_SESSION['acesso'] == 'ADM')
-{
+$matricula = $_GET['matricula'];
 
-  $sql = mysql_query ("SELECT * FROM colaborador group by id_ga" );
-}
-else
-{
-    $sql = mysql_query ("select * from colaborador where id_ga  = '".$_SESSION['id']."' group by nome" );
 
-}
+      
 
+      
+    $sql = mysql_query ("select * from localidade where matricula = '$matricula'" );
+
+      
     $row = mysql_num_rows($sql);
 
  
@@ -145,33 +141,27 @@ else
 
 
                   <tr>
+                  
+                    <td><?php echo $dado ["uf"];  ?></td>
+                     
+                    <td><?php echo $dado ["localidade"];  ?></td>
+                    <td><?php echo $dado ["estacao"];  ?></td>
                     
-                    <td> <?php if ($_SESSION['acesso'] == 'ADM') { echo $dado ["id_ga"]; } else echo $dado ["id_tec"];  ?></td>
-                    <td> <?php if ($_SESSION['acesso'] == 'ADM') { echo $dado ["nome_ga"]; } else echo $dado ["nome"];  ?></td>
-                    <td><?php if ($_SESSION['acesso'] == 'ADM') { echo "Gestor"; } else echo $dado ["funcao"];  ?></td>
+                    <td><?php echo $dado ["micro"];  ?></td>
                     
-                   
-
-
-
-<?php if ($_SESSION['acesso'] == 'ADM') { ?>
-<td> <a style="color:black;" href="table-data-table2.php?id=<?php echo $dado ["id_ga"]; ?>"  role="button" aria-pressed="true"><i class="fa fa-file-text" aria-hidden="true"></i></a></td>
-<?php } else { ?>
-
-
-
-<td> <a style="color:black;" href="table-data-table.php?id=<?php echo $dado ["id_tec"]; ?>   role="button" aria-pressed="true"><i class="fa fa-file-text" aria-hidden="true"></i></a></td>
-<?php } ?>
-
-
-                    
+                    <td><?php echo $dado ["matricula"];  ?></td>
+               
                     
                   </tr>
       <?php 
                       
       } 
          
-    } ?>
+    } else {echo "
+        <script language='JavaScript'>
+        window.alert('SEM ESTAÇÃO ATRIBUÍDAS!') 
+        
+        </script> <label> TÉCNICO SEM ESTAÇÕES ATRIBUÍDAS</label>";  }?>
                 </tbody>
               </table>
             </div>
@@ -180,8 +170,9 @@ else
       </div>
     </main>
     
-    <!-- Essential javascripts for application to work-->
 
+    <!-- Essential javascripts for application to work-->
+    <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>

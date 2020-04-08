@@ -28,7 +28,7 @@
     <meta property="og:url" content="http://pratikborsadiya.in/blog/vali-admin">
     <meta property="og:image" content="http://pratikborsadiya.in/blog/vali-admin/hero-social.png">
     <meta property="og:description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
-    <title>Kit Ferramental</title>
+    <title>Serede</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -64,6 +64,7 @@
           <p class="app-sidebar__user-designation"><?php echo $_SESSION['acesso'];?></p>
         </div>
       </div>
+      <?php if($_SESSION['acesso'] == 'ADM') {?>
       <ul class="app-menu">
         <li><a class="app-menu__item " href="cadastro.php"><i class="app-menu__icon fa fa-user"></i><span class="app-menu__label">Cadastro Técnico</span></a></li>
         <li><a class="app-menu__item " href="pesq_per.php"><i class="app-menu__icon fa fa-list"></i><span class="app-menu__label">Inventário Técnico</span></a></li>
@@ -75,7 +76,25 @@
             <li><a class="treeview-item" href="widgets.html"><i class="icon fa fa-circle-o"></i> Widgets</a></li>
           </ul>
         </li>
+      <?php }?>
+
+
+      <?php if($_SESSION['acesso'] == 'CL') {?>
+      <ul class="app-menu">
+        <li><a class="app-menu__item " href="cadastro_tec.php"><i class="app-menu__icon fa fa-user"></i><span class="app-menu__label">Cadastro Técnico</span></a></li>
+        <li><a class="app-menu__item " href="cadastro_localidade.php"><i class="app-menu__icon fa fa-list"></i><span class="app-menu__label">Cadastro estação</span></a></li>
+        <li><a class="app-menu__item " href="pesq_ga.php"><i class="app-menu__icon fa fa-list"></i><span class="app-menu__label">Pesquisa por G.A</span></a></li>
+        <li><a class="app-menu__item " href="pesq_estacao.php"><i class="app-menu__icon fa fa-list"></i><span class="app-menu__label">Pesquisa por Estação</span></a></li>
+        <li><a class="app-menu__item " href="pesq_tecnico.php"><i class="app-menu__icon fa fa-list"></i><span class="app-menu__label">Pesquisa por Técnico</span></a></li>
         
+          <ul class="treeview-menu">
+            <li><a class="treeview-item" href="bootstrap-components.html"><i class="icon fa fa-circle-o"></i> Bootstrap Elements</a></li>
+            <li><a class="treeview-item" href="https://fontawesome.com/v4.7.0/icons/" target="_blank" rel="noopener"><i class="icon fa fa-circle-o"></i> Font Icons</a></li>
+            <li><a class="treeview-item" href="ui-cards.html"><i class="icon fa fa-circle-o"></i> Cards</a></li>
+            <li><a class="treeview-item" href="widgets.html"><i class="icon fa fa-circle-o"></i> Widgets</a></li>
+          </ul>
+        </li>
+      <?php }?>
         
             
 

@@ -2,12 +2,7 @@
 
 session_start();
 
-         if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"])  )
-            {
-                 header("Location: index.html");
-                  exit;
-            }
-
+        
 
 
 ?> 
@@ -128,7 +123,7 @@ height:70px;
     <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-edit"></i> Cadastro de colaborador</h1>
+          <h1><i class="fa fa-edit"></i> Cadastro de CP's</h1>
           <p></p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
@@ -149,49 +144,31 @@ height:70px;
 
 <div class="form-group">
 
-  <label for="email">Id (Serede):</label>
-  <input type="text" class="form-control" name="id" required>
+  <label for="email">CP:</label>
+  <input type="text" class="form-control" name="cp" required>
 </div>
+
+
+
+
 
 
 
 
 <div class="form-group">
 
-  <label for="email">Nome:</label>
-  <input type="text" class="form-control" name="nome" required  >
-</div>
+<label for="sel1">Tipo:</label>
+<select class="form-control "  name="tipo"  >
 
 
-
-<div class="form-group">
-
-<label for="sel1">Função:</label>
-<select class="form-control "  name="funcao"  >
-
-
- <option value="cabista">  Cabista </option>
- <option value="ftth">  Ftth </option>
- <option value="dth">  Dth </option>
- <option value="multiskil">  Multiskill </option>
- <option value="oficial de rede">  Oficial de rede </option>
- <option value="operador dg">  Operador DG </option>
- <option value="triplo play" > Triplo play </option>
- <option value="voz velox" > Voz velox </option>
+ <option value="fibra">  Fibra </option>
+ <option value="utp">  Utp </option>
+ 
 
 
 </select><br>
 
-  <label for="email">Id G.A (Serede):</label>
-  <input type="text" class="form-control" name="id_ga"  required >
-</div>
-
-<div class="form-group">
-
-  <label for="email">Nome Ga:</label>
-  <input type="text" class="form-control" name="nome_ga" required >
-</div>
-
+ 
 
 
 
