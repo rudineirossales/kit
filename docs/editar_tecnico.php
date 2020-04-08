@@ -2,7 +2,8 @@
 
 session_start();
 
-        
+
+$matricula = $_GET['matricula'];
 
 
 ?> 
@@ -17,6 +18,8 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
   <head>
+
+ 
 
   <link rel="icon" href="img/serede.png">
 
@@ -110,7 +113,7 @@ height:70px;
       </div>
       <ul class="app-menu">
         <li><a class="app-menu__item " href="dashboard.php"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
-        <li><a class="app-menu__item " href="cadastro_tec.php"><i class="app-menu__icon fa fa-list"></i><span class="app-menu__label">Cadastro técnico</span></a></li>
+        
         
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="bootstrap-components.html"><i class="icon fa fa-circle-o"></i> Bootstrap Elements</a></li>
@@ -123,7 +126,7 @@ height:70px;
     <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-edit"></i> Cadastro de localidades</h1>
+          <h1><i class="fa fa-edit"></i> Editar Estação</h1>
           <p></p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
@@ -137,46 +140,43 @@ height:70px;
           <div class="tile">
             <div class="row">
               <div class="col-lg-6">
-              <form class="form" role="form" name="seachform" method="post"  action="enviar_cad_local.php ">
+
+              <?php
+               
+               $sql = mysql_query ("select * from tecnico where matricula = '$matricula'" );
+
+      
+               $row = mysql_num_rows($sql);
+
+               if (mysql_num_rows($sql) > 0)
+               {
+
+                $dado = mysql_fetch_assoc($sql);
+               
+
+              ?>
+              <form class="form" role="form" name="seachform" method="post"  action="editar_tecnico2.php ">
 
 
 
 
+
+<input type="hidden" class="form-control" value="<?php echo $dado['matricula'];?>" name="matricula"  required>
 <div class="form-group">
 
-  <label for="email">Localidade:</label>
-  <input type="text" class="form-control" name="local" required>
+  <label for="email">Nome:</label>
+  <input type="text" class="form-control" value="<?php echo $dado['nome'];?>" name="nome"  required>
 </div>
-<div class="form-group">
-
-  <label for="email">Estação:</label>
-  <input type="text" class="form-control" name="estacao"  required>
-</div>
 
 <div class="form-group">
 
-  <label for="email">Microarea:</label>
-  <input type="text" class="form-control" name="micro"  required>
-</div>
+<label for="sel1">Skill:</label>
+<select class="form-control "  name="skill"  >
 
-<div class="form-group">
-
-  <label for="email">Matrícula:</label>
-  <input type="text" class="form-control" name="mat"  required>
-</div>
-
-
-
-
-<div class="form-group">
-
-<label for="sel1">Estado:</label>
-<select class="form-control "  name="uf"  >
-
-
- <option value="PR">  PR </option>
- <option value="SC">  SC </option>
- <option value="RS">  RS </option>
+ <option value="<?php echo $dado['skill'];?>">  <?php echo $dado['skill'];?> </option>
+ <option value="dados">  DADOS </option>
+ <option value="eletricista">  ELETRICISTA </option>
+ 
  
 
 
@@ -185,9 +185,54 @@ height:70px;
 </div>
 
 
+<div class="form-group">
+
+<label for="sel1">Nome G.A:</label>
+<select class="form-control "  name="nome_ga"  >
+
+ <option value="<?php echo $dado['nome_ga'];?>">  <?php echo $dado['nome_ga'];?> </option>
+ <option value="ALISSON SQUINZANI">  ALISSON SQUINZANI </option>
+ <option value="ANDERSON FERRI">  ANDERSON FERRI </option>
+ <option value="CLEOMAR BISCHOFF">  CLEOMAR BISCHOFF </option>
+ <option value="ENIR">  ENIR </option>
+ <option value="JOSE LUIS">  JOSE LUIS </option>
+ <option value="JUNIOMAR ALEX MOCHNACZ">  JUNIOMAR ALEX MOCHNACZ </option>
+ <option value="MARLON CRISTIAN">  MARLON CRISTIAN  </option>
+ 
+ 
 
 
-<br><br><button type="submit" value="Enviar" class="btn btn-primary" id="enviar" required> <strong>Cadastrar</strong>
+</select>
+
+</div>
+
+<div class="form-group">
+
+  <label for="email">CONTATO:</label>
+  <input type="text" class="form-control" value="<?php echo $dado['contato'];?>" name="contato"  required>
+</div>
+
+<div class="form-group">
+
+  <label for="email">EMAIL:</label>
+  <input type="text" class="form-control" value="<?php echo $dado['email'];?>" name="email"  required>
+</div>
+
+<div class="form-group">
+
+  <label for="email">Obs</label>
+  <textarea class="form-control"  maxlength="200" name="obs" rows="3"><?php echo $dado['obs'];?></textarea>
+</div>
+
+
+
+
+
+
+
+
+
+<br><br><button type="submit" value="Enviar" class="btn btn-primary" id="enviar" required> <strong>Editar</strong>
 </button><br><br><br><br>
 
 
@@ -214,6 +259,18 @@ height:70px;
 
 
 </form>
+
+
+
+               <?php 
+            
+            
+            
+            
+            
+            
+            
+            } ?>
               </div>
             </div>
             
@@ -221,6 +278,9 @@ height:70px;
         </div>
       </div>
     </main>
+
+
+    
     <!-- Essential javascripts for application to work-->
   
     <script src="js/popper.min.js"></script>

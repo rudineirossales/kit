@@ -79,22 +79,31 @@
       <?php }?>
 
 
-      <?php if($_SESSION['acesso'] == 'CL') {?>
-      <ul class="app-menu">
-        <li><a class="app-menu__item " href="cadastro_tec.php"><i class="app-menu__icon fa fa-user"></i><span class="app-menu__label">Cadastro Técnico</span></a></li>
-        <li><a class="app-menu__item " href="cadastro_localidade.php"><i class="app-menu__icon fa fa-list"></i><span class="app-menu__label">Cadastro estação</span></a></li>
-        <li><a class="app-menu__item " href="pesq_ga.php"><i class="app-menu__icon fa fa-list"></i><span class="app-menu__label">Pesquisa por G.A</span></a></li>
-        <li><a class="app-menu__item " href="pesq_estacao.php"><i class="app-menu__icon fa fa-list"></i><span class="app-menu__label">Pesquisa por Estação</span></a></li>
-        <li><a class="app-menu__item " href="pesq_tecnico.php"><i class="app-menu__icon fa fa-list"></i><span class="app-menu__label">Pesquisa por Técnico</span></a></li>
-        
+      <?php if($_SESSION['acesso'] == 'CL_ADM') {?>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Cadastro</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="bootstrap-components.html"><i class="icon fa fa-circle-o"></i> Bootstrap Elements</a></li>
-            <li><a class="treeview-item" href="https://fontawesome.com/v4.7.0/icons/" target="_blank" rel="noopener"><i class="icon fa fa-circle-o"></i> Font Icons</a></li>
-            <li><a class="treeview-item" href="ui-cards.html"><i class="icon fa fa-circle-o"></i> Cards</a></li>
-            <li><a class="treeview-item" href="widgets.html"><i class="icon fa fa-circle-o"></i> Widgets</a></li>
+           
+          <li><a class="app-menu__item " href="cadastro_tec.php"><i class="app-menu__icon fa fa-user"></i><span class="app-menu__label">Técnico</span></a></li>
+        <li><a class="app-menu__item " href="cadastro_localidade.php"><i class="app-menu__icon fa fa-list"></i><span class="app-menu__label">Estação</span></a></li>
+            
+           
           </ul>
         </li>
-      <?php }?>
+        <?php }?>
+
+        
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Pesquisa / Edição</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+          <ul class="treeview-menu">
+           
+          <li><a class="app-menu__item " href="pesq_ga.php"><i class="app-menu__icon fa fa-list"></i><span class="app-menu__label">Pesquisa por G.A</span></a></li>
+        <li><a class="app-menu__item " href="pesq_estacao.php"><i class="app-menu__icon fa fa-list"></i><span class="app-menu__label">Pesquisa por Estação</span></a></li>
+        <li><a class="app-menu__item " href="pesq_tecnico.php"><i class="app-menu__icon fa fa-list"></i><span class="app-menu__label">Pesquisa por Técnico</span></a></li>
+            
+           
+          </ul>
+        </li>
+     
+    
         
             
 
@@ -105,7 +114,7 @@
     <main class="app-content">
       <div class="app-title">
       <div>
-          <h1><i class="fa fa-pie-chart"></i> Dashboard</h1>
+          <h1><i class="fa fa-pie-chart"></i> Centrais PR / SC</h1>
           <p></p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
@@ -114,7 +123,10 @@
         </ul>
       </div>
       <div class="row">
-        <div class="col-md-6"> <!--
+      <iframe src="https://www.google.com/maps/d/embed?mid=1lddxg5I7TU5mGLZvS4Gx7tHBZa8" width="100%" height="480"></iframe>
+        <div class="col-md-6">
+        
+         <!--
           <div class="tile">
             <h3 class="tile-title">EM DESENVOLVIMENTO</h3>
             <div class="embed-responsive embed-responsive-16by9">

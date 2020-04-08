@@ -155,15 +155,26 @@ height:70px;
 
 <div class="form-group">
 
-  <label for="email">Nome G.A:</label>
-  <input type="text" class="form-control" name="nome_ga"  required>
+<label for="sel1">Nome G.A:</label>
+<select class="form-control "  name="nome_ga"  >
+
+ 
+ <option value="ALISSON SQUINZANI">  ALISSON SQUINZANI </option>
+ <option value="ANDERSON FERRI">  ANDERSON FERRI </option>
+ <option value="CLEOMAR BISCHOFF">  CLEOMAR BISCHOFF </option>
+ <option value="ENIR">  ENIR </option>
+ <option value="JOSE LUIS">  JOSE LUIS </option>
+ <option value="JUNIOMAR ALEX MOCHNACZ">  JUNIOMAR ALEX MOCHNACZ </option>
+ <option value="MARLON CRISTIAN">  MARLON CRISTIAN  </option>
+ 
+ 
+
+
+</select>
+
 </div>
 
-<div class="form-group">
 
-  <label for="email">Matrícula G.A:</label>
-  <input type="text" class="form-control" name="mat_ga"  required>
-</div>
 
 
 
@@ -200,7 +211,7 @@ height:70px;
 <div class="form-group">
 
   <label for="email">Obs</label>
-  <textarea class="form-control" name="obs" rows="3"></textarea>
+  <textarea class="form-control" maxlength="200" name="obs" rows="3"></textarea>
 </div>
 
 <div class="form-group">

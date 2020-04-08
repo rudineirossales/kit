@@ -14,7 +14,20 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+
+
     <link rel="icon" href="img/serede.png"> 
+<script language="Javascript">
+function confirmacao(matricula) {
+     var resposta = confirm("Deseja remover esse registro?");
+ 
+     if (resposta == true) {
+          window.location.href = "deletar_tecnico.php?matricula="+matricula;
+     }
+}
+</script>
+
+
 
     <script type="text/javascript">
 function fnExcelReport() {
@@ -122,7 +135,7 @@ function fnExcelReport() {
     <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-th-list"></i> Tabela Estações</h1>
+          <h1><i class="fa fa-th-list"></i> Tabela Técnicos</h1>
           <p> </p>
         </div>
         <ul class="app-breadcrumb breadcrumb side">
@@ -227,6 +240,8 @@ $sql = mysql_query ("select * from localidade right join tecnico on localidade.m
           $email = $dado ["email"];
           $skill = $dado ["skill"];
           $obs = $dado ["obs"];
+          $matricula = $dado ["matricula"];
+          $protocolo = $dado ["protocolo"];
      
       
 
@@ -267,7 +282,17 @@ $sql = mysql_query ("select * from localidade right join tecnico on localidade.m
       
       <label>Email:</label><?php echo $email;  ?><br>
       <label>Obs:</label><?php echo $obs;  ?><br>
+      <?php if($_SESSION['acesso'] == 'CL_ADM') {?>
+      <div class="form-group" style="float:right;">
+      <a href="editar_tecnico.php?matricula=<?php echo $matricula;?> "
+     class="btn btn-info btn-sm active" role="button" aria-pressed="true">Editar</a>  
+      <a href="javascript:func()"
+     onclick="confirmacao('<?php echo $matricula;?>')" class="btn btn-danger btn-sm active" role="button" aria-pressed="true">Deletar</a>
+     
+     </div>
+     <?php }?>
       </fieldset>
+      
                </div>
          
                <?php } }?>

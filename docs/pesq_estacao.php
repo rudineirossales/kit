@@ -16,6 +16,16 @@
   <head>
     <link rel="icon" href="img/serede.png"> 
 
+    <script language="Javascript">
+function confirmacao(protocolo) {
+     var resposta = confirm("Deseja remover esse registro?");
+ 
+     if (resposta == true) {
+          window.location.href = "deletar_estacao.php?protocolo="+protocolo;
+     }
+}
+</script>
+
     <script type="text/javascript">
 function fnExcelReport() {
     var tab_text = '<html xmlns:x="urn:schemas-microsoft-com:office:excel">';
@@ -188,8 +198,10 @@ function fnExcelReport() {
                     <th>Localidade</th>
                     <th>Estação</th>
                     <th>Micro</th>
+                    <?php if($_SESSION['acesso'] == 'CL_ADM') {?>
                     <th>Editar</th>
                     <th>Deletar</th>
+                    <?php }?>
                     
                    
                     
@@ -242,9 +254,11 @@ $sql = mysql_query ("select * from localidade join tecnico on localidade.matricu
                     <td><?php echo $dado ["localidade"];  ?></td>
                     <td><?php echo $dado ["estacao"];  ?></td>
                     <td><?php echo $dado ["micro"];  ?></td>
+                    <?php if($_SESSION['acesso'] == 'CL_ADM') {?>
                     <td><a style="color:black;"  href="editar_estacao.php?protocolo=<?php echo $dado["protocolo"];?>"   role="button" aria-pressed="true"><i class="fa fa-edit" aria-hidden="true"></i></a></td>
-                    <td></td>
-                    
+                    <td> <a href="javascript:func()"
+     onclick="confirmacao('<?php echo $dado ['protocolo'];?>')" class="btn btn-danger btn-sm active" role="button" aria-pressed="true">Deletar</a></td> 
+                    <?php }?>
                     
                    
 
