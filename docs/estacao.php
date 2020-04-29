@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-<?php 
-=======
 ﻿<?php 
->>>>>>> V1.3
          include "conn.php"; 
       
          session_start();
@@ -31,11 +27,7 @@
     <meta property="og:url" content="http://pratikborsadiya.in/blog/vali-admin">
     <meta property="og:image" content="http://pratikborsadiya.in/blog/vali-admin/hero-social.png">
     <meta property="og:description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
-<<<<<<< HEAD
-    <title>BA97</title>
-=======
     <title>Serede</title>
->>>>>>> V1.3
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -90,13 +82,8 @@
     <main class="app-content">
       <div class="app-title">
         <div>
-<<<<<<< HEAD
-          <h1><i class="fa fa-th-list"></i> Pendentes BA97</h1>
-          <p>Tabela cumulativa </p>
-=======
           <h1><i class="fa fa-th-list"></i> Técnico / Estação
           <p> </p>
->>>>>>> V1.3
         </div>
         <ul class="app-breadcrumb breadcrumb side">
           <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>

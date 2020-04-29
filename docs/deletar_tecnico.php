@@ -39,11 +39,7 @@ function saidasuccessfully()
 
 <meta charset="UTF-8"/>
 
-<<<<<<< HEAD
-<title>Deletar</title>
-=======
 <title>Serede</title>
->>>>>>> V1.3
 
 <link rel="icon" href="img/icon.ico">
 </head>
