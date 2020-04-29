@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <?php  include "conn.php"; 
+=======
+﻿<?php  include "conn.php"; 
+>>>>>>> V1.3
 
 $matricula = $_POST['matricula'];
 $nome = $_POST['nome'];
@@ -75,7 +79,11 @@ function saidasuccessfully()
 
 <meta charset="UTF-8"/>
 
+<<<<<<< HEAD
 <title>Editar Técnico</title>
+=======
+<title>Serede</title>
+>>>>>>> V1.3
 
 
 </head>

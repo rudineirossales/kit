@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <?php  include "conn.php"; 
+=======
+﻿<?php  include "conn.php"; 
+>>>>>>> V1.3
 
 session_start();
 
@@ -72,7 +76,11 @@ height:70px;
     <meta property="og:url" content="http://pratikborsadiya.in/blog/vali-admin">
     <meta property="og:image" content="http://pratikborsadiya.in/blog/vali-admin/hero-social.png">
     <meta property="og:description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
+<<<<<<< HEAD
     <title>Kit Ferramental</title>
+=======
+    <title>Serede</title>
+>>>>>>> V1.3
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -222,7 +230,11 @@ height:70px;
 
 <div class="form-group">
 
+<<<<<<< HEAD
 <label for="email">Email</label>
+=======
+<label for="email">Data Nascimento</label>
+>>>>>>> V1.3
 <input type="text" class="form-control" name="email"  required>
 </div>
 

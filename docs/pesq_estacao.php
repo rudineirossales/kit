@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <?php 
+=======
+﻿<?php 
+>>>>>>> V1.3
          include "conn.php"; 
       
          session_start();
@@ -76,7 +80,11 @@ function fnExcelReport() {
     <meta property="og:url" content="http://pratikborsadiya.in/blog/vali-admin">
     <meta property="og:image" content="http://pratikborsadiya.in/blog/vali-admin/hero-social.png">
     <meta property="og:description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
+<<<<<<< HEAD
     <title>BA97</title>
+=======
+    <title>Serede</title>
+>>>>>>> V1.3
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -192,6 +200,10 @@ function fnExcelReport() {
                   <tr>
                     <th>Nome</th>
                     <th>Matricula</th>
+<<<<<<< HEAD
+=======
+                    <th>Obs</th>
+>>>>>>> V1.3
                     <th>Skill</th>
                     <th>Contato</th>
                     <th>UF</th>
@@ -248,6 +260,10 @@ $sql = mysql_query ("select * from localidade join tecnico on localidade.matricu
                   <tr>
                     <td><?php echo $dado ["nome"];  ?></td>
                     <td><?php echo $dado ["matricula"];  ?></td>
+<<<<<<< HEAD
+=======
+                    <td><?php echo $dado ["obs"];  ?></td>
+>>>>>>> V1.3
                     <td><?php echo $dado ["skill"];  ?></td>
                     <td><?php echo $dado ["contato"];  ?></td>
                     <td><?php echo $dado ["uf"];  ?></td>

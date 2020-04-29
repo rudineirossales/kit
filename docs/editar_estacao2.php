@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <?php  include "conn.php"; 
+=======
+﻿<?php  include "conn.php"; 
+>>>>>>> V1.3
 
 
 $protocolo = $_POST['protocolo'];
@@ -42,7 +46,11 @@ function saidasuccessfully()
 
 <meta charset="UTF-8"/>
 
+<<<<<<< HEAD
 <title>Editar Estação</title>
+=======
+<title>Serede</title>
+>>>>>>> V1.3
 
 
 </head>

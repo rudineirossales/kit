@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <?php 
+=======
+﻿<?php 
+>>>>>>> V1.3
          include "conn.php"; 
       
          session_start();
@@ -79,7 +83,11 @@ function fnExcelReport() {
     <meta property="og:url" content="http://pratikborsadiya.in/blog/vali-admin">
     <meta property="og:image" content="http://pratikborsadiya.in/blog/vali-admin/hero-social.png">
     <meta property="og:description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
+<<<<<<< HEAD
     <title>BA97</title>
+=======
+    <title>Serede</title>
+>>>>>>> V1.3
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -280,7 +288,11 @@ $sql = mysql_query ("select * from localidade right join tecnico on localidade.m
       <label>Contato:</label><?php echo $contato;  ?><br>
       <label>GA:</label><?php echo $ga;  ?><br>
       
+<<<<<<< HEAD
       <label>Email:</label><?php echo $email;  ?><br>
+=======
+      <label>Nascimento:</label><?php echo $email;  ?><br>
+>>>>>>> V1.3
       <label>Obs:</label><?php echo $obs;  ?><br>
       <?php if($_SESSION['acesso'] == 'CL_ADM') {?>
       <div class="form-group" style="float:right;">
